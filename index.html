@@ -30,8 +30,16 @@
                         "December"
                     ];
                     var d = a.getDate();
-                    document.getElementById("day").innerHTML = d  + (d % 10 >= 4 && d % 10 <= 9 || d % 10 === 0 ?  "th" : ["st", "nd", "rd"][d % 10 - 1]);
-                    document.getElementById("month").innerHTML = months[a.getMonth()];
+                    var day = d  + (d % 10 >= 4 && d % 10 <= 9 || d % 10 === 0 ?  "th" : ["st", "nd", "rd"][d % 10 - 1]);
+                    var month = months[a.getMonth()]
+
+                    if (a <= new Date(2014, 07, 1)) {
+                        day = "1st";
+                        month = "August";
+                    }
+
+                    document.getElementById("day").innerHTML = day;
+                    document.getElementById("month").innerHTML = month;
                 </script>
             </p>
         </div>
